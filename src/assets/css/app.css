@@ -1,0 +1,41 @@
+@import 'normalize.css';
+@import 'variables.css';
+body {
+    background-color: var(--bg-color);
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    /* margin-top: 60px; */
+}
+
+.grid-app {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Side nav is hidden on mobile */
+    grid-template-rows: 60px 1fr;
+    grid-template-areas: 'navbar' 'main';
+    min-height: 100vh;
+}
+
+@media only screen and (min-width: 46.875em) {
+    /* Show the sidenav */
+    .grid-app {
+        grid-template-columns: 240px 1fr;
+        /* Show the side nav for non-mobile screens */
+        grid-template-areas: "sidenav navbar" "sidenav main" "sidenav main";
+    }
+}
+
+
+@import 'navbar.css';
+@import 'main.css';
+@import 'sidenav.css';
+
+
+/*Components*/
+@import 'components/cards.css';
