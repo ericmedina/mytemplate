@@ -6,9 +6,9 @@
     width: 240px;
     position: fixed;
     overflow-y: auto;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
     z-index: 2; /* Needs to sit above the hamburger menu icon */
-    background-color: #394263;
+    background-color: #fff;
     transform: translateX(-245px);
     transition: all .6s ease-in-out;
   }
@@ -16,19 +16,19 @@
     transform: translateX(0);
   }
 
-.sidenav__list {
+.sidenav_list {
     padding: 0;
     margin-top: 85px;
     list-style-type: none;
 }
 
-.sidenav__list-item {
-    padding: 20px 20px 20px 40px;
-    color: #ddd;
+.sidenav_list-item {
+    padding: 10px 15px 10px 15px;
+    color:#6f6f6f;
 }
 
-.sidenav__list-item:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.sidenav_list-item:hover {
+    background-color: rgba(0,0,0,0.09);
     cursor: pointer;
 }
 

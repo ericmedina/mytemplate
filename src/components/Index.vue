@@ -23,7 +23,10 @@
       </div>
     </div>
     <div class="main-cards">
-      <div class="card card-example">Card</div>
+      <div class="card card-example">
+        <h3>Buttons</h3>
+        <button class="btn btn-primary">Primary</button>
+      </div>
       <div class="card card-example">Card</div>
       <div class="card card-example">Card</div>
     </div>

@@ -7,3 +7,33 @@
     justify-content: space-between;
     padding: 0 16px;
 }
+.navbar_profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+}
+.profile_user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: .5rem;
+}
+.profile_user > .username{
+    font-size: .95rem;
+}
+.profile_user > .role{
+    font-size: .85rem;
+    color: #a5a5a5;
+}
+.profile_thumbnail{
+    max-height: 50px;
+    max-width: 50px;
+    height: auto;
+    width: auto; 
+    border-radius: 50%;
+}
