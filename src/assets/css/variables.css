@@ -1,39 +1,18 @@
+@import 'colors.css';
 :root{
-    --bg-color: #ebedf1;
-    --no-mobile: 46.875em;
-    /*Primary color*/
-    --primary-lighten-4: #B1EDF8;
-    --primary-lighten-3: #4EBDED;
-    --primary-lighten-2: #29AFEA;
-    --primary-lighten-1: #02A1E7;
-    --primary: #0094d8;
-    --primary-darken-1: #0081c4;
-    --primary-darken-2: #0070b1;
-    --primary-darken-3: #00518f;
-    /*Secondary color*/
-    
-    --secondary-lighten-3: #F0F0F0;
-    --secondary-lighten-2: #DEDEDE;
-    --secondary-lighten-1: #C2C2C2;
-    --secondary: #979797;
-    --secondary-darken-1: #818181;
-    --secondary-darken-2: #606060;
-    --secondary-darken-3: #3C3C3C;
+    --bg-color: var(--neutral-10);
+    --border-color: var(--neutral-40);
+    --light-font: var(--neutral-60);
+    --body-font: var(--neutral-80);
+    --dark-font: var(--neutral-100);
 
-    --success-lighten-3: #00d8b0;
-    --success-lighten-2: #00cd9e;
-    --success-lighten-1: #00c08e;
-    --success: #00b180;
-    --success-darken-1: #00a06f;
-    --success-darken-2: #008f60;
-    --success-darken-3: #007143;
-
-    
+    --primary-color:var(--purple-60);
 
 
-    --info: #00cfe8;
-    --warning: #ff9f43;
-    --danger: #ea5455;
-    --light: #f6f6f6;
-    --dark: #4b4b4b;
+
+    --shadow-1: 0px 1px 1px rgba(9, 30, 66, 0.25), 0px 0px 1px rgba(9, 30, 66, 0.31);
+    --shadow-2: 0px 3px 5px rgba(9, 30, 66, 0.2), 0px 0px 1px rgba(9, 30, 66, 0.31);
+    --shadow-3: 0px 8px 12px rgba(9, 30, 66, 0.15), 0px 0px 1px rgba(9, 30, 66, 0.31);
+    --shadow-4: 0px 18px 28px rgba(9, 30, 66, 0.15), 0px 0px 1px rgba(9, 30, 66, 0.31);
+
 }

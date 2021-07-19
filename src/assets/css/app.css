@@ -38,3 +38,4 @@ body {
 
 /*Components*/
 @import 'components/cards.css';
+@import 'components/buttons.css';

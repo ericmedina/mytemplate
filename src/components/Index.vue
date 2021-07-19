@@ -26,6 +26,10 @@
       <div class="card card-example">
         <h3>Buttons</h3>
         <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-info">Info</button>
+        <button class="btn btn-warning">Warning</button>
+        <button class="btn btn-error">Error</button>
       </div>
       <div class="card card-example">Card</div>
       <div class="card card-example">Card</div>

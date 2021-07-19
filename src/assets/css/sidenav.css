@@ -24,7 +24,7 @@
 
 .sidenav_list-item {
     padding: 10px 15px 10px 15px;
-    color:#6f6f6f;
+    color:var(--light-font);
 }
 
 .sidenav_list-item:hover {

@@ -8,7 +8,7 @@
   padding: 20px;
   height: 150px; /* Force our height since we don't have actual content yet */
   background-color: #e3e4e6;
-  color: slategray;
+  color: var(--body-font);
 }
 .main-overview {
   display: grid;
