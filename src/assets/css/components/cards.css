@@ -4,4 +4,5 @@
     box-shadow: var(--shadow-2);
     margin: 20px;
     padding: 20px;
+    -webkit-column-break-inside: avoid;
 }

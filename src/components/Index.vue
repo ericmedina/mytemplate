@@ -1,9 +1,9 @@
 <template>
   <main class="main">
-    <div class="card main-header">
+    <!-- <div class="card main-header">
       <div class="main-header__heading">Hello User</div>
       <div class="main-header__updates">Recent Items</div>
-    </div>
+    </div> -->
     <div class="card">
         <h2>Buttons</h2>
         <h4>Normal</h4>
@@ -34,6 +34,23 @@
         <button class="btn btn-gradient-warning">Warning</button>
         <button class="btn btn-gradient-error">Error</button>
         <button class="btn btn-gradient-dark">Dark</button>
+    </div>
+    <div class="main-cards">
+      <div class="card">
+        <h3>Buttons size</h3>
+        <button class="btn btn-lg btn-primary">Large</button>
+        <button class="btn  btn-primary">Normal</button>
+        <button class="btn btn-sm btn-primary">Small</button>
+        <button class="btn btn-lg btn-outline-primary">Large</button>
+        <button class="btn  btn-outline-primary">Normal</button>
+        <button class="btn btn-sm btn-outline-primary">Small</button>
+      </div>
+      <div class="card">
+        <h3>Button block</h3>        
+        <button class="btn btn-lg btn-primary btn-block">Large</button>
+        <button class="btn  btn-primary btn-block">Normal</button>
+        <button class="btn btn-sm btn-primary btn-block">Small</button>
+      </div>
     </div>
     <div class="main-overview">
       <div class="overviewcard card">
