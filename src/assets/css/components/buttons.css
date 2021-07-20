@@ -13,6 +13,7 @@
     cursor:pointer;
     box-shadow: var(--shadow-2);
 }
+/*COMMONS*/
 .btn-primary{
     background-color: var(--primary-color);
 }
@@ -49,6 +50,7 @@
 .btn-dark:hover{
     background-color: var(--neutral-90);
 }
+/*OUTLINE*/
 .btn-outline-primary{
     border:1px solid var(--primary-color);
     background-color:white;
@@ -103,7 +105,7 @@
     background-color: var(--neutral-100);
     color:white;
 }
-
+/*FLAT*/
 .btn-flat-primary{
     color: var(--primary-color);
     box-shadow:none;
@@ -163,4 +165,41 @@
 .btn-flat-dark:hover{
     background-color: var(--neutral-30);
     box-shadow:none;
+}
+/*GRADIENT*/
+.btn-gradient-primary{
+    color: white;
+    box-shadow:none;
+    border:none;
+    background-image:var(--gradient-primary);
+}
+.btn-gradient-success{
+    color: white;
+    box-shadow:none;
+    border:none;
+    background-image:var(--gradient-success);
+}
+.btn-gradient-warning{
+    color: white;
+    box-shadow:none;
+    border:none;
+    background-image:var(--gradient-warning);
+}
+.btn-gradient-error{
+    color: white;
+    box-shadow:none;
+    border:none;
+    background-image:var(--gradient-error);
+}
+.btn-gradient-info{
+    color: white;
+    box-shadow:none;
+    border:none;
+    background-image:var(--gradient-info);
+}
+.btn-gradient-dark{
+    color: white;
+    box-shadow:none;
+    border:none;
+    background-image:var(--gradient-dark);
 }

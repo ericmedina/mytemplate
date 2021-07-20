@@ -8,6 +8,14 @@
 
     --primary-color:var(--purple-60);
 
+    --gradient-deg: 75deg;
+    --gradient-primary:linear-gradient(var(--gradient-deg), var(--purple-60), var(--purple-40));
+    --gradient-success:linear-gradient(var(--gradient-deg), var(--success-60), var(--success-40));
+    --gradient-info:linear-gradient(var(--gradient-deg), var(--info-60), var(--info-40));
+    --gradient-warning:linear-gradient(var(--gradient-deg), var(--warning-60), var(--warning-40));
+    --gradient-error:linear-gradient(var(--gradient-deg), var(--error-60), var(--error-40));
+    --gradient-dark:linear-gradient(var(--gradient-deg), var(--neutral-100), var(--neutral-80));
+
 
 
     --shadow-1: 0px 1px 1px rgba(9, 30, 66, 0.25), 0px 0px 1px rgba(9, 30, 66, 0.31);

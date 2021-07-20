@@ -27,6 +27,13 @@
         <button class="btn btn-flat-warning">Warning</button>
         <button class="btn btn-flat-error">Error</button>
         <button class="btn btn-flat-dark">Dark</button>
+        <h4>Gradient</h4>
+        <button class="btn btn-gradient-primary">Primary</button>
+        <button class="btn btn-gradient-success">Success</button>
+        <button class="btn btn-gradient-info">Info</button>
+        <button class="btn btn-gradient-warning">Warning</button>
+        <button class="btn btn-gradient-error">Error</button>
+        <button class="btn btn-gradient-dark">Dark</button>
     </div>
     <div class="main-overview">
       <div class="overviewcard card">
