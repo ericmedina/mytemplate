@@ -4,6 +4,30 @@
       <div class="main-header__heading">Hello User</div>
       <div class="main-header__updates">Recent Items</div>
     </div>
+    <div class="card">
+        <h2>Buttons</h2>
+        <h4>Normal</h4>
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-info">Info</button>
+        <button class="btn btn-warning">Warning</button>
+        <button class="btn btn-error">Error</button>
+        <button class="btn btn-dark">Dark</button>
+        <h4>Outline</h4>
+        <button class="btn btn-outline-primary">Primary</button>
+        <button class="btn btn-outline-success">Success</button>
+        <button class="btn btn-outline-info">Info</button>
+        <button class="btn btn-outline-warning">Warning</button>
+        <button class="btn btn-outline-error">Error</button>
+        <button class="btn btn-outline-dark">Dark</button>
+        <h4>Flat</h4>
+        <button class="btn btn-flat-primary">Primary</button>
+        <button class="btn btn-flat-success">Success</button>
+        <button class="btn btn-flat-info">Info</button>
+        <button class="btn btn-flat-warning">Warning</button>
+        <button class="btn btn-flat-error">Error</button>
+        <button class="btn btn-flat-dark">Dark</button>
+    </div>
     <div class="main-overview">
       <div class="overviewcard card">
         <div class="overviewcard__icon">Overview</div>
@@ -24,12 +48,6 @@
     </div>
     <div class="main-cards">
       <div class="card card-example">
-        <h3>Buttons</h3>
-        <button class="btn btn-primary">Primary</button>
-        <button class="btn btn-success">Success</button>
-        <button class="btn btn-info">Info</button>
-        <button class="btn btn-warning">Warning</button>
-        <button class="btn btn-error">Error</button>
       </div>
       <div class="card card-example">Card</div>
       <div class="card card-example">Card</div>
