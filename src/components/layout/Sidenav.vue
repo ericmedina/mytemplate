@@ -3,10 +3,13 @@
     <div class="sidenav__close-icon">
       <i class="fas fa-times"></i>
     </div>
+    <div class="sidenav-header">
+      <img class="sidenav-logo" src="images/Logo.png" alt="" srcset="">
+    </div>
     <ul class="sidenav_list">
-      <li class="sidenav_list-item">Item One</li>
-      <li class="sidenav_list-item active">Item Two</li>
-      <li class="sidenav_list-item">Item Three</li>
+      <li class="sidenav_list-item">Dashboard</li>
+      <li class="sidenav_list-item active">Buttons</li>
+      <li class="sidenav_list-item">Inputs</li>
       <li class="sidenav_list-item">Item Four</li>
       <li class="sidenav_list-item">Item Five</li>
     </ul>
