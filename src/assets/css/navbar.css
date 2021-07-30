@@ -4,7 +4,7 @@
     box-shadow: 0px .5px 5px #ddd;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0 16px;
 }
 .navbar_profile{

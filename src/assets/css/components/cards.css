@@ -6,3 +6,7 @@
     padding: 20px;
     -webkit-column-break-inside: avoid;
 }
+.card-title{
+    margin:0 0 20px 0;
+    margin-left: .3rem;
+}

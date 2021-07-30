@@ -34,7 +34,10 @@ body {
     }
 }
 
+/*General*/
+@import 'helpers.css';
 
+/*Template*/
 @import 'navbar.css';
 @import 'main.css';
 @import 'sidenav.css';
@@ -43,3 +46,4 @@ body {
 /*Components*/
 @import 'components/cards.css';
 @import 'components/buttons.css';
+@import 'components/forms.css';

@@ -9,6 +9,7 @@
   </div>
 </template>
 <script>
+import feather from 'feather-icons'
 import Navbar from "@/components/layout/Navbar";
 import Index from "@/components/Index";
 import Sidenav from "@/components/layout/Sidenav.vue";
@@ -19,5 +20,11 @@ export default {
     Index,
     Sidenav,
   },
+  mounted(){
+    feather.replace()
+  },
+  updated(){
+    feather.replace()
+  }
 };
 </script>

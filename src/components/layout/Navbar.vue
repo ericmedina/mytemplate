@@ -1,6 +1,5 @@
 <template>
   <nav class="navbar">
-    <div class="navbar_search">Search...</div>
     <button class="navbar_profile">
       <div class="profile_user">
         <span class="username">

@@ -1,0 +1,17 @@
+.d-flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.d-block{
+    display: block;
+}
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(min(100%, 25%), 1fr)); */
+}
+.text-danger{
+    color:var(--error-40)!important;
+}

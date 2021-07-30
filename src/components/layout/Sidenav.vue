@@ -4,20 +4,28 @@
       <i class="fas fa-times"></i>
     </div>
     <div class="sidenav-header">
-      <img class="sidenav-logo" src="images/Logo.png" alt="" srcset="">
+      <img class="sidenav-logo" src="images/Logo.png" alt="" srcset="" />
     </div>
     <ul class="sidenav_list">
-      <li class="sidenav_list-item">Dashboard</li>
-      <li class="sidenav_list-item active">Buttons</li>
-      <li class="sidenav_list-item">Inputs</li>
-      <li class="sidenav_list-item">Item Four</li>
-      <li class="sidenav_list-item">Item Five</li>
+      <li class="sidenav_list-title">Mi menú</li>
+      <li v-for="item in items" :key="item.title" class="sidenav_list-item">
+        <router-link :active="'active'" :to="item.to"> <i :data-feather="item.icon" ></i> <span>{{item.title}}</span> </router-link>
+      </li>
     </ul>
   </aside>
 </template>
 <script>
 export default {
   name: "Sidenav",
+  data(){
+    return{
+      items:[
+        {title:'Dashboard', icon: 'home', to:{name:'Dashboard'}},
+        {title:'Buttons', icon: 'target', to:{name:'Buttons'}},
+        {title:'Inputs', icon: 'type', to:{name:'Inputs'}},
+      ]
+    }
+  },
   mounted() {
     this.sidenavHandler();
   },
