@@ -64,6 +64,8 @@
           :placeholder="placeholder"
           :value="value"
           @input="update($event.target.value)"
+          :disabled="disabled"
+          :readonly="readonly"
           :class="[
             classInput ? classInput : 'form-control',
             required || numeric ? 'is-invalid' : '',
@@ -85,6 +87,8 @@
           :id="id"
           :placeholder="placeholder"
           :value="value"
+          :disabled="disabled"
+          :readonly="readonly"
           @input="update($event.target.value)"
           :class="[
             classInput ? classInput : 'form-control',
@@ -104,6 +108,8 @@
             classInput ? classInput : 'form-control',
             required || numeric ? 'is-invalid' : '',
           ]"
+          :disabled="disabled"
+          :readonly="readonly"
         />
       </template>
     </template>
@@ -113,6 +119,7 @@
     <small class="form-message text-danger" v-if="numeric"
       >Sólo se aceptan números.</small
     >
+    <slot name="helper"></slot>
     <slot name="validation"></slot>
   </div>
 </template>
@@ -126,6 +133,14 @@ export default {
     },
     prepend: String,
     append: String,
+    disabled: {
+      type: Boolean,
+      value: false,
+    },
+    readonly: {
+      type: Boolean,
+      value: false,
+    },
     required: {
       type: Boolean,
       value: false,

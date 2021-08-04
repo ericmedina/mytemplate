@@ -1,9 +1,10 @@
 <template>
   <div>
     <div class="card">
-      <h2>Dashboard</h2>
+      <!-- <h2 class="card-title">Dashboard</h2> -->
+      <h4 class="card-title">Dashboard</h4>
     </div>
-    <div class="main-overview">
+    <div class="row">
       <div class="overviewcard card">
         <div class="overviewcard__icon">Overview</div>
         <div class="overviewcard__info">Card</div>

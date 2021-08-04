@@ -1,8 +1,5 @@
 <template>
   <div id="app" class="grid-app">
-    <div class="menu-icon">
-      <i class="fas fa-bars"></i>
-    </div>
     <Navbar></Navbar>
     <Sidenav></Sidenav>
     <Index></Index>

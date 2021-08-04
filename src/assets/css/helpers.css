@@ -1,17 +1,37 @@
-.d-flex{
+.d-flex {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.d-block{
+
+.d-block {
     display: block;
 }
+
 .grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(auto, 1fr));
     /* grid-template-columns: repeat(auto-fill, minmax(min(100%, 25%), 1fr)); */
 }
-.text-danger{
-    color:var(--error-40)!important;
+
+.cols2 {
+    display: grid;
+    grid-template-columns:  1fr;
+    /* Where the magic happens */
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+    margin: auto;
+}
+
+
+
+.text-danger {
+    color: var(--error-40) !important;
+}
+
+@media only screen and (min-width: 60em) {
+    .cols2 {
+        grid-template-columns: 1fr 1fr;
+    }
 }

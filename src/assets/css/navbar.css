@@ -7,6 +7,19 @@
     justify-content: flex-end;
     padding: 0 16px;
 }
+.menu-icon {
+  position: absolute;
+  display: flex;
+  top: 0px;
+  left: 10px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  border:none;
+  cursor: pointer;
+  padding: 12px;
+  background-color: inherit;
+}
 .navbar_profile{
     display: flex;
     align-items: center;

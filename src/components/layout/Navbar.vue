@@ -1,5 +1,8 @@
 <template>
   <nav class="navbar">
+    <button class="menu-icon">
+      <icon feather="menu"></icon>
+    </button>
     <button class="navbar_profile">
       <div class="profile_user">
         <span class="username">
