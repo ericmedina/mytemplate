@@ -168,10 +168,6 @@ export default {
         let index = element.cellIndex;
         let rows =  document.querySelectorAll(".table-list tbody tr");
         let body = document.querySelector(".table-list tbody");
-        console.log(order)
-        rows.forEach((r) => {
-            console.log(r.cells[index].innerHTML)
-        })
         let rowOrdered = [...rows].sort((a,b) => {
             if(a.cells[index].innerHTML > b.cells[index].innerHTML){
                 return (order == 'up')?1:-1
@@ -183,7 +179,6 @@ export default {
         })
         body.innerHTML = ''
         rowOrdered.forEach((r) => {
-            console.log(r.cells[index].innerHTML)
             body.innerHTML += r.outerHTML
         })
     },
