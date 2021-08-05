@@ -15,6 +15,11 @@ const routes = [
         component: () => import('@/components/views/examples/Inputs'),
     },
     {
+        path: "/lists",
+        name: "Lists",
+        component: () => import('@/components/views/examples/DataLists'),
+    },
+    {
         path: "/",
         name: "Dashboard",
         component: () => import('@/components/views/examples/Dashboard'),
