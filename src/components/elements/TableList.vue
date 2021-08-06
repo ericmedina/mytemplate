@@ -1,5 +1,29 @@
 <template>
   <div>
+    <div class="search">
+      <pd-input
+        id="searchInput"
+        v-model="searchInput"
+        placeholder="Buscar"
+        label="Buscar"
+      ></pd-input>
+      <pd-input
+        id="searchInput"
+        v-model="searchIndex"
+        placeholder="Filtrar por:"
+        select
+        label="Filtrar por:"
+      >
+        <option
+          slot="options"
+          v-for="option in searchOptions"
+          :key="option.index"
+          :value="option.index"
+        >
+          {{ option.value }}
+        </option>
+      </pd-input>
+    </div>
     <table class="table-list">
       <thead>
         <tr>
@@ -12,99 +36,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="text-primary">#6291</td>
+        <tr v-for="(item, i) in filteredData" :key="i">
+          <td class="text-primary">#{{ item.id }}</td>
           <td class="w-100">
-            <span class="list-label">CUIT:</span> 23-37176364-4
+            <span class="list-label">CUIT:</span> {{ item.cuit }}
           </td>
           <td class="important w-100">
             <div class="list-item">
               <div class="list-body">
-                <span>Oric Daniel Medina</span>
-                <small class="text-secondary">ericmedina.dev@gmail.com</small>
+                <span>{{ item.nombre }}</span>
+                <small class="text-secondary">{{ item.email }}</small>
               </div>
             </div>
           </td>
-          <td class=""><span class="list-label">Total:</span> $3171</td>
-          <td class=""><span class="list-label">Fecha:</span> 19/10/2021</td>
-          <td class="w-100">
-            <div class="actions">
-              <button class="action-item">
-                <icon feather="eye"></icon>
-              </button>
-              <button class="action-item">
-                <icon feather="download"></icon>
-              </button>
-            </div>
+          <td class="">
+            <span class="list-label">Total:</span> {{ item.total }}
           </td>
-        </tr>
-        <tr>
-          <td class="text-primary">#6292</td>
-          <td class="w-100">
-            <span class="list-label">CUIT:</span> 20-37176364-4
+          <td class="">
+            <span class="list-label">Fecha:</span> {{ item.fecha }}
           </td>
-          <td class="important w-100">
-            <div class="list-item">
-              <div class="list-body">
-                <span>Mric Daniel Medina</span>
-                <small class="text-secondary">ericmedina.dev@gmail.com</small>
-              </div>
-            </div>
-          </td>
-          <td class=""><span class="list-label">Total:</span> $3171</td>
-          <td class=""><span class="list-label">Fecha:</span> 19/10/2021</td>
-          <td class="w-100">
-            <div class="actions">
-              <button class="action-item">
-                <icon feather="eye"></icon>
-              </button>
-              <button class="action-item">
-                <icon feather="download"></icon>
-              </button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-primary">#6293</td>
-          <td class="w-100">
-            <span class="list-label">CUIT:</span> 22-37176364-4
-          </td>
-          <td class="important w-100">
-            <div class="list-item">
-              <div class="list-body">
-                <span>Cric Daniel Medina</span>
-                <small class="text-secondary">ericmedina.dev@gmail.com</small>
-              </div>
-            </div>
-          </td>
-          <td class=""><span class="list-label">Total:</span> $3171</td>
-          <td class=""><span class="list-label">Fecha:</span> 19/10/2021</td>
-          <td class="w-100">
-            <div class="actions">
-              <button class="action-item">
-                <icon feather="eye"></icon>
-              </button>
-              <button class="action-item">
-                <icon feather="download"></icon>
-              </button>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="text-primary">#6294</td>
-          <td class="w-100">
-            <span class="list-label">CUIT:</span> 21-37176364-4
-          </td>
-          <td class="important w-100">
-            <div class="list-item">
-              <div class="list-body">
-                <span>Rric Daniel Medina</span>
-                <small class="text-secondary">ericmedina.dev@gmail.com</small>
-              </div>
-            </div>
-          </td>
-          <td class=""><span class="list-label">Total:</span> $3171</td>
-          <td class=""><span class="list-label">Fecha:</span> 19/10/2021</td>
           <td class="w-100">
             <div class="actions">
               <button class="action-item">
@@ -123,9 +73,76 @@
 <script>
 export default {
   name: "TableList",
+  data() {
+    return {
+      searchOptions: [],
+      searchInput: null,
+      searchIndex: null,
+      searchOptionSelected: null,
+      data: [],
+      filteredData: [],
+    };
+  },
+  watch: {
+    searchIndex() {
+      this.filter();
+    },
+    searchInput() {
+      this.filter();
+    },
+  },
   mounted() {
-    let headers = document.querySelectorAll(".table-list th[sortable], .table-list th[sortdown], .table-list th[sortup]");
+    this.data = [
+      {
+        id: "6291",
+        cuit: "23-37176364-4",
+        nombre: "Oric Daniel Medina",
+        email: "ericmedina.dev@gmail.com",
+        total: "$3171",
+        fecha: "19/10/2021",
+      },
+      {
+        id: "6292",
+        cuit: "20-37176364-4",
+        nombre: "Mric Daniel Medina",
+        email: "ericmedina.dev@gmail.com",
+        total: "$3171",
+        fecha: "19/10/2021",
+      },
+      {
+        id: "6293",
+        cuit: "22-37176364-4",
+        nombre: "Cric Daniel Medina",
+        email: "ericmedina.dev@gmail.com",
+        total: "$3171",
+        fecha: "19/10/2021",
+      },
+      {
+        id: "6294",
+        cuit: "21-37176364-4",
+        nombre: "Rric Daniel Medina",
+        email: "ericmedina.dev@gmail.com",
+        total: "$3171",
+        fecha: "19/10/2021",
+      },
+    ];
+    this.filteredData = [...this.data];
+    let headers = document.querySelectorAll(
+      ".table-list th[sortable], .table-list th[sortdown], .table-list th[sortup]"
+    );
+    this.mountSearchOptions(headers);
     headers.forEach((th) => {
+      this.addListeners(th);
+    });
+  },
+  methods: {
+    mountSearchOptions(headers) {
+      this.searchOptions.push({ index: null, value: "Todos los datos" });
+      headers.forEach((th) => {
+        this.searchOptions.push({ index: th.innerText.toLowerCase(), value: th.innerText });
+      });
+    },
+    addListeners(th) {
       th.addEventListener("click", (e) => {
         if (
           e.target.hasAttribute("sortable") ||
@@ -139,9 +156,24 @@ export default {
           return;
         }
       });
-    });
-  },
-  methods: {
+    },
+    filter() {
+      if(this.searchInput != null){
+        if (this.searchIndex != null) {
+          this.filteredData =this.data.filter((item) => {
+            let convert = new Map(Object.entries(item));
+            let text = convert.get(this.searchIndex.toLowerCase());
+            if(text.contains(this.searchInput)){
+              return true
+            }else{
+              return false
+            }
+          });
+        } else {
+          console.log("all");
+        }
+      }
+    },
     resetSortable() {
       let headers = document.querySelectorAll(".table-list th");
       headers.forEach((th) => {
@@ -153,34 +185,52 @@ export default {
       });
     },
     sortUp(element) {
-        this.resetSortable()
-        element.removeAttribute("sortable");
-        element.setAttribute("sortup", "");
-        this.sort(element, 'up')
+      this.resetSortable();
+      element.removeAttribute("sortable");
+      element.setAttribute("sortup", "");
+      this.sort(element, "up");
     },
     sortDown(element) {
-        this.resetSortable()
-        element.removeAttribute("sortable");
-        element.setAttribute("sortdown", "");
-        this.sort(element, 'down')
+      this.resetSortable();
+      element.removeAttribute("sortable");
+      element.setAttribute("sortdown", "");
+      this.sort(element, "down");
     },
     sort(element, order) {
-        let index = element.cellIndex;
-        let rows =  document.querySelectorAll(".table-list tbody tr");
-        let body = document.querySelector(".table-list tbody");
-        let rowOrdered = [...rows].sort((a,b) => {
-            if(a.cells[index].innerHTML > b.cells[index].innerHTML){
-                return (order == 'up')?1:-1
-            }
-            if(a.cells[index].innerHTML < b.cells[index].innerHTML){
-                return (order == 'up')?-1:1
-            }
-            return 0
-        })
-        body.innerHTML = ''
-        rowOrdered.forEach((r) => {
-            body.innerHTML += r.outerHTML
-        })
+      let index = element.cellIndex;
+      let rows = document.querySelectorAll(".table-list tbody tr");
+      let body = document.querySelector(".table-list tbody");
+      let rowOrdered = [...rows].sort((a, b) => {
+        if (a.cells[index].innerHTML > b.cells[index].innerHTML) {
+          return order == "up" ? 1 : -1;
+        }
+        if (a.cells[index].innerHTML < b.cells[index].innerHTML) {
+          return order == "up" ? -1 : 1;
+        }
+        return 0;
+      });
+      body.innerHTML = "";
+      rowOrdered.forEach((r) => {
+        body.innerHTML += r.outerHTML;
+      });
+    },
+    getTextNodesIn(node, includeWhitespaceNodes) {
+      let textNodes = [],
+        whitespace = /^\s*$/;
+      function getTextNodes(node) {
+        if (node.nodeType == 3) {
+          if (includeWhitespaceNodes || !whitespace.test(node.nodeValue)) {
+            textNodes.push(node);
+          }
+        } else {
+          for (var i = 0, len = node.childNodes.length; i < len; ++i) {
+            getTextNodes(node.childNodes[i]);
+          }
+        }
+      }
+
+      getTextNodes(node);
+      return textNodes;
     },
   },
 };
