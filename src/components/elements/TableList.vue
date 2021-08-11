@@ -1,13 +1,15 @@
 <template>
   <div>
-    <div class="search">
+    <h2 class="card-title mb-0">Lists</h2>
+    <div class="search third-right my-1">
       <pd-input
         id="searchInput"
         v-model="searchInput"
         placeholder="Buscar"
         label="Buscar"
+        class=""
       ></pd-input>
-      <pd-input
+      <!-- <pd-input
         id="searchInput"
         v-model="searchIndex"
         placeholder="Filtrar por:"
@@ -22,7 +24,7 @@
         >
           {{ option.value }}
         </option>
-      </pd-input>
+      </pd-input> -->
     </div>
     <table class="table-list">
       <thead>
@@ -139,7 +141,10 @@ export default {
     mountSearchOptions(headers) {
       this.searchOptions.push({ index: null, value: "Todos los datos" });
       headers.forEach((th) => {
-        this.searchOptions.push({ index: th.innerText.toLowerCase(), value: th.innerText });
+        this.searchOptions.push({
+          index: th.innerText.toLowerCase(),
+          value: th.innerText,
+        });
       });
     },
     addListeners(th) {
@@ -158,20 +163,20 @@ export default {
       });
     },
     filter() {
-      if(this.searchInput != null){
-        if (this.searchIndex != null) {
-          this.filteredData =this.data.filter((item) => {
-            let convert = new Map(Object.entries(item));
-            let text = convert.get(this.searchIndex.toLowerCase());
-            if(text.contains(this.searchInput)){
-              return true
-            }else{
-              return false
+      if (this.searchInput != null) {
+        this.filteredData = this.data.filter((item) => {
+          let values = Object.values(item);
+          let finded = false;
+          values.forEach((value) => {
+            if (value.toLowerCase().includes(this.searchInput.toLowerCase())) {
+              finded = true;
             }
-          });
-        } else {
-          console.log("all");
-        }
+          })
+          console.log(finded)
+          return finded;
+        });
+      }else{
+        return true;
       }
     },
     resetSortable() {
