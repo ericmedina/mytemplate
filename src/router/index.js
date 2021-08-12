@@ -10,6 +10,11 @@ const routes = [
         component: () => import('@/components/views/examples/Buttons'),
     },
     {
+        path: "/modals",
+        name: "Modals",
+        component: () => import('@/components/views/examples/Modals'),
+    },
+    {
         path: "/inputs",
         name: "Inputs",
         component: () => import('@/components/views/examples/Inputs'),

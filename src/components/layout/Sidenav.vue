@@ -60,11 +60,12 @@ export default {
         },
         { title: "Inputs", icon: "type", to: { name: "Inputs" } },
         { title: "Lists", icon: "list", to: { name: "Lists" } },
+        { title: "Modals", icon: "grid", to: { name: "Modals" } },
       ],
     };
   },
   updated() {
-    this.classSubMenu();
+    this.classSubMenu()
   },
   mounted() {
     this.sidenavHandler();

@@ -111,14 +111,13 @@
   overflow: hidden;
   max-height: 0;
   height:auto;
-  transition: all .3s ease-in-out;
+  transition: all .3s linear;
   /* background-color: red;; */
 }
 
 .sidenav_list-item.has-sub.opened > ul.sub-menu{
   
   max-height: 1000px;
-  transition: all .3s ease-in-out;
 }
 .sidenav_list-item.has-sub > ul.sub-menu > .sidenav_list-item>a>svg {
   width: .6rem;

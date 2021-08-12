@@ -1,0 +1,105 @@
+.modal-overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.33);
+    z-index: 5;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.modal-container {
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.modal {
+    height: auto;
+    min-height: 60vh;
+    width: 100vw;
+    background-color: white;
+    border-radius: 12px 12px 0px 0px;
+    box-shadow: var(--shadow-2);
+    margin: 0px;
+    padding: 20px;
+    -webkit-column-break-inside: avoid;
+}
+.modal.fade-in{
+    animation: fadeIn .5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+.modal.fade-out{
+    animation: fadeOut .5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+@media only screen and (min-width: 63em) {
+
+    .modal-container {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal {
+        height: auto;
+        width: auto;
+        min-height: 20vh;
+        min-width: 20vw;
+        background-color: white;
+        border-radius: 3px;
+        box-shadow: var(--shadow-2);
+        margin: 20px;
+        padding: 20px;
+        -webkit-column-break-inside: avoid;
+    }
+    .modal.fade-in{
+        animation: scaleIn .5s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+    .modal.fade-out{
+        animation: scaleOut .5s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes fadeIn {
+    from{
+        transform:translateY(100vh)
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+@keyframes fadeOut {
+    from{
+        transform:translateY(0)
+    }
+    to{
+        transform: translateY(100vh);
+    }
+}
+@keyframes scaleIn {
+    from{
+        transform:scale(0)
+    }
+    to{
+        transform: scale(1);
+    }
+}
+@keyframes scaleOut {
+    from{
+        transform:scale(1)
+    }
+    to{
+        transform: scale(0);
+    }
+}
