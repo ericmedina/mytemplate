@@ -51,7 +51,7 @@
 }
 
 .sidenav_list-item>a {
-  width: 100%;
+  width: calc(100% - 30px);
   padding: 10px 15px 10px 15px;
   margin: 1px 15px;
   color: var(--light-font);
@@ -62,6 +62,19 @@
   transition: 0.2s ease-in-out;
   display: flex;
   align-items: stretch;
+  position: relative;
+}
+.sidenav_list-item.has-sub>a::after{
+  content:url('~@/assets/images/chevron-right.svg');
+  position: absolute;
+  right:8px;
+  width: 15px;
+  height: 15px;
+  top:14px;
+  transition: all .3s ease-in-out;
+}
+.sidenav_list-item.has-sub.opened>a::after{
+  transform: rotate(90deg);
 }
 .sidenav_list-item>a>svg {
   width: 1rem;
@@ -83,7 +96,34 @@
   cursor: pointer;
   padding-left:20px;
 }
+.sidenav_list-item.has-sub{
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: start;
+}
+.sidenav_list-item.has-sub.opened > a{
+  background-color: var(--neutral-30);
+}
+.sidenav_list-item.has-sub > ul.sub-menu{
+  margin-left: 0;
+  padding-left: 0;
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  height:auto;
+  transition: all .3s ease-in-out;
+  /* background-color: red;; */
+}
 
+.sidenav_list-item.has-sub.opened > ul.sub-menu{
+  
+  max-height: 1000px;
+  transition: all .3s ease-in-out;
+}
+.sidenav_list-item.has-sub > ul.sub-menu > .sidenav_list-item>a>svg {
+  width: .6rem;
+  padding-bottom: 1px;
+}
 
 .sidenav-header {
   height: 60px;
