@@ -80,7 +80,7 @@ export default {
     sidenavHandler() {
       let menuIcon = document.querySelector(".menu-icon");
       let sidenavClose = document.querySelector(".sidenav__close-icon");
-      let menuItems = document.querySelectorAll(".sidenav_list-item");
+      let menuItems = document.querySelectorAll(".sidenav_list-item:not(.has-sub)");
 
       //Abrir
       menuIcon.addEventListener("click", () => {
