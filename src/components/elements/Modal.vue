@@ -1,6 +1,9 @@
 <template>
   <div ref="modal-container" class="modal-container">
-    <div class="modal">
+    <div class="modal" draggable="true">
+      <div class="modal-exit">
+        <img src="@/assets/images/bottomsheet.svg" alt="" srcset="">
+      </div>
       <slot name="modal-title"></slot>
       <slot name="modal-body"></slot>
     </div>
