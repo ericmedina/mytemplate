@@ -26,17 +26,23 @@
     font-size: .9rem;
     line-height: .9rem;
 }
-
+.radio-container{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding:.6rem 1rem
+}
 .form-control::placeholder {
     color: var(--neutral-60);
 }
 
 .form-control:active,
 .form-control:focus,
-.form-control:focus-visible{
+.form-control:focus-visible {
     border-color: var(--purple-40);
     outline: none;
 }
+
 .form-control.readonly {
     padding-left: .2rem;
     border-color: transparent
@@ -53,19 +59,34 @@
 .input-group {
     display: flex;
 }
-.input-group:focus-within .input-group-prepend, .input-group:focus-within .input-group-append{
+
+.input-group:focus-within .input-group-prepend,
+.input-group:focus-within .input-group-append {
     border-color: var(--purple-40);
     outline: none;
 }
-.input-group>.form-control{
+
+.input-group>.input-group {
+    flex: 1;
+}
+
+.input-group>.input-group .form-control,
+.input-group>.input-group .input-group-prepend,
+.input-group>.input-group .input-group-apppend {
+    border: none;
+}
+
+.input-group>.form-control {
     width: 100%;
 }
+
 .input-group>.form-control:not(:first-child) {
     padding-left: 0;
     border-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
 .input-group>.input-group-prepend {
     margin-right: -1px;
     display: flex;
@@ -74,12 +95,14 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
+
 .input-group>.form-control:first-child {
     padding-right: 0;
     border-right: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
+
 .input-group>.input-group-append {
     margin-left: -1px;
     display: flex;
@@ -106,12 +129,28 @@
     color: #6e6b7b;
     white-space: nowrap;
 }
-.input-group-text>svg{
+
+.input-group-text>svg {
     width: .88rem;
 }
 
-.input-group .form-control.is-invalid{
+.input-group .form-control.is-invalid {
     border-right: 1px solid var(--error-40);
-} .input-group .form-control.is-valid{
+}
+
+.input-group .form-control.is-valid {
     border-right: 1px solid var(--success-40);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
 }

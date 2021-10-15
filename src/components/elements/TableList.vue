@@ -1,7 +1,25 @@
 <template>
   <div>
-    <h2 class="card-title mb-0">Lists</h2>
-    <div class="search third-right my-1">
+    <div class="d-flex space-between" v-if="actionButton || actionButton2">
+      <div class="mb-1 sm-w100">
+        <button class="btn btn-primary" v-if="actionButton" @click="actionButton.action">
+          {{ actionButton.text }}
+        </button>
+        <button class="btn btn-primary" v-if="actionButton2" @click="actionButton2.action">
+          {{ actionButton2.text }}
+        </button>
+      </div>
+      <div v-if="showFilter" class="mb-1 search">
+        <pd-input
+          id="searchInput"
+          v-model="searchInput"
+          placeholder="Buscar"
+          label="Buscar"
+          class=""
+        ></pd-input>
+      </div>
+    </div>
+    <div v-else-if="showFilter" class="search third-right my-1">
       <pd-input
         id="searchInput"
         v-model="searchInput"
@@ -9,62 +27,38 @@
         label="Buscar"
         class=""
       ></pd-input>
-      <!-- <pd-input
-        id="searchInput"
-        v-model="searchIndex"
-        placeholder="Filtrar por:"
-        select
-        label="Filtrar por:"
-      >
-        <option
-          slot="options"
-          v-for="option in searchOptions"
-          :key="option.index"
-          :value="option.index"
-        >
-          {{ option.value }}
-        </option>
-      </pd-input> -->
     </div>
     <table class="table-list">
       <thead>
         <tr>
-          <th sortup>#</th>
-          <th sortdown>CUIT</th>
-          <th sortable>Cliente</th>
-          <th sortable>Total</th>
-          <th sortable>Fecha</th>
-          <th>Acciones</th>
+          <th v-for="(th, i) in header" :key="i" :sortable="th.sortable">
+            {{ th.value }}
+          </th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, i) in filteredData" :key="i">
-          <td class="text-primary">#{{ item.id }}</td>
-          <td class="w-100">
-            <span class="list-label">CUIT:</span> {{ item.cuit }}
-          </td>
-          <td class="important w-100">
+        <tr
+          v-for="(item, i) in filteredData"
+          :key="i"
+          @click="handleClick(item)"
+        >
+          <td v-for="(td, j) in body" :key="j" :class="td.class">
             <div class="list-item">
               <div class="list-body">
-                <span>{{ item.nombre }}</span>
-                <small class="text-secondary">{{ item.email }}</small>
+                <span v-for="(dato, k) in td.data" :key="k">
+                  <span v-if="dato.label" class="list-label text-normal"
+                    >{{ dato.label }}:</span
+                  >
+                  <span
+                    :class="dato.class"
+                    v-if="dato.mutator"
+                    v-html="dato.mutator(showItem(item, dato.value))"
+                  ></span>
+                  <span v-else :class="dato.class">
+                    {{ showItem(item, dato.value) }}
+                  </span>
+                </span>
               </div>
-            </div>
-          </td>
-          <td class="">
-            <span class="list-label">Total:</span> {{ item.total }}
-          </td>
-          <td class="">
-            <span class="list-label">Fecha:</span> {{ item.fecha }}
-          </td>
-          <td class="w-100">
-            <div class="actions">
-              <button class="action-item">
-                <icon feather="eye"></icon>
-              </button>
-              <button class="action-item">
-                <icon feather="download"></icon>
-              </button>
             </div>
           </td>
         </tr>
@@ -75,13 +69,20 @@
 <script>
 export default {
   name: "TableList",
+  props: {
+    showFilter: { type: Boolean, required: true, default: false },
+    header: { type: Array(), required: true, default: [] },
+    body: { type: Array(), required: true, default: [] },
+    data: { type: Array() },
+    actionButton: null,
+    actionButton2: null,
+  },
   data() {
     return {
       searchOptions: [],
       searchInput: null,
       searchIndex: null,
       searchOptionSelected: null,
-      data: [],
       filteredData: [],
     };
   },
@@ -92,43 +93,13 @@ export default {
     searchInput() {
       this.filter();
     },
+    data() {
+      this.filteredData = this.data;
+      console.log(this.filteredData);
+    },
   },
   mounted() {
-    this.data = [
-      {
-        id: "6291",
-        cuit: "23-37176364-4",
-        nombre: "Oric Daniel Medina",
-        email: "ericmedina.dev@gmail.com",
-        total: "$3171",
-        fecha: "19/10/2021",
-      },
-      {
-        id: "6292",
-        cuit: "20-37176364-4",
-        nombre: "Mric Daniel Medina",
-        email: "ericmedina.dev@gmail.com",
-        total: "$3171",
-        fecha: "19/10/2021",
-      },
-      {
-        id: "6293",
-        cuit: "22-37176364-4",
-        nombre: "Cric Daniel Medina",
-        email: "ericmedina.dev@gmail.com",
-        total: "$3171",
-        fecha: "19/10/2021",
-      },
-      {
-        id: "6294",
-        cuit: "21-37176364-4",
-        nombre: "Rric Daniel Medina",
-        email: "ericmedina.dev@gmail.com",
-        total: "$3171",
-        fecha: "19/10/2021",
-      },
-    ];
-    this.filteredData = [...this.data];
+    this.filteredData = this.data;
     let headers = document.querySelectorAll(
       ".table-list th[sortable], .table-list th[sortdown], .table-list th[sortup]"
     );
@@ -151,31 +122,40 @@ export default {
       th.addEventListener("click", (e) => {
         if (
           e.target.hasAttribute("sortable") ||
-          e.target.hasAttribute("sortup")
+          e.target.hasAttribute("sortdown")
         ) {
-          this.sortDown(e.target);
+          this.sortUp(e.target);
           return;
         }
-        if (e.target.hasAttribute("sortdown")) {
-          this.sortUp(e.target);
+        if (e.target.hasAttribute("sortup")) {
+          this.sortDown(e.target);
           return;
         }
       });
     },
     filter() {
       if (this.searchInput != null) {
-        this.filteredData = this.data.filter((item) => {
-          let values = Object.values(item);
+        this.filteredData = [...this.data].filter((item) => {
           let finded = false;
-          values.forEach((value) => {
-            if (value.toLowerCase().includes(this.searchInput.toLowerCase())) {
-              finded = true;
-            }
-          })
-          console.log(finded)
+          this.body.forEach((val) => {
+            val.data.forEach((key) => {
+              let foo = this.showItem(item, key.value);
+              if (foo) {
+                if (
+                  foo
+                    .toString()
+                    .toLowerCase()
+                    .includes(this.searchInput.toLowerCase())
+                ) {
+                  finded = true;
+                }
+              }
+            });
+          });
           return finded;
         });
-      }else{
+        console.log(this.filteredData.length)
+      } else {
         return true;
       }
     },
@@ -202,22 +182,29 @@ export default {
       this.sort(element, "down");
     },
     sort(element, order) {
-      let index = element.cellIndex;
-      let rows = document.querySelectorAll(".table-list tbody tr");
-      let body = document.querySelector(".table-list tbody");
-      let rowOrdered = [...rows].sort((a, b) => {
-        if (a.cells[index].innerHTML > b.cells[index].innerHTML) {
+      this.filteredData.sort((a,b) => {
+        let data_a = ''
+        let data_b = ''
+        this.body[element.cellIndex].data.forEach(element => {
+          data_a += this.showItem(a, element.value)
+          data_b += this.showItem(b, element.value)
+        });
+        if(!isNaN(data_a))
+        {
+          data_a = parseFloat(data_a)
+        }
+        if(!isNaN(data_b))
+        {
+          data_b = parseFloat(data_b)
+        }
+        if (data_a > data_b) {
           return order == "up" ? 1 : -1;
         }
-        if (a.cells[index].innerHTML < b.cells[index].innerHTML) {
+        if (data_a < data_b) {
           return order == "up" ? -1 : 1;
         }
         return 0;
-      });
-      body.innerHTML = "";
-      rowOrdered.forEach((r) => {
-        body.innerHTML += r.outerHTML;
-      });
+      })
     },
     getTextNodesIn(node, includeWhitespaceNodes) {
       let textNodes = [],
@@ -236,6 +223,30 @@ export default {
 
       getTextNodes(node);
       return textNodes;
+    },
+    showItem(item, value) {
+      let keys = value.split(".");
+      keys.forEach((k) => {
+        if (!item) {
+          return null;
+        }
+        item = item[k];
+      });
+      return item;
+    },
+    handleClick(item) {
+      this.$emit("rowClicked", item);
+    },
+    chunk(arr, chunkSize) {
+      if (chunkSize <= 0) throw "Invalid chunk size";
+      var R = [];
+      for (var i = 0, len = arr.length; i < len; i += chunkSize)
+        R.push(arr.slice(i, i + chunkSize));
+      return R;
+    },
+    refresh(data) {
+      this.searchInput = null;
+      this.filteredData = data;
     },
   },
 };

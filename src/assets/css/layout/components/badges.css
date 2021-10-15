@@ -1,0 +1,18 @@
+.badge{
+  padding:.2rem .5rem;
+  border-radius: 5px;
+}
+.badge.warning{
+  background-color: var(--warning-40);
+  font-weight: 500;
+}
+.badge.success{
+  color:white;
+  font-weight: 500;
+  background-color: var(--success-40);
+}
+.badge.error{
+  color:white;
+  font-weight: 500;
+  background-color: var(--error-40);
+}

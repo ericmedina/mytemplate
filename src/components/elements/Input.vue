@@ -51,6 +51,7 @@
             classInput ? classInput : 'form-control',
             required || numeric ? 'is-invalid' : '',
           ]"
+          @keypress="validate"
         />
       </template>
       <div class="input-group-append" v-if="append">
@@ -74,7 +75,7 @@
           <template v-if="options">
             <option :value="null">Seleccione una opción</option>
             <option v-for="option in options" :key="option" :value="option">
-              {{ option }}
+              {{ option.text }}
             </option>
           </template>
           <template v-else>
@@ -110,6 +111,8 @@
           ]"
           :disabled="disabled"
           :readonly="readonly"
+          autocomplete="off"
+          @keypress="validate"
         />
       </template>
     </template>
@@ -174,6 +177,26 @@ export default {
   methods: {
     update: function (value) {
       this.$emit("input", value);
+    },
+    validate(evt) {
+      if(evt.target.inputmode == 'numeric'){
+        let theEvent = evt || window.event;
+        let key = null;
+  
+        // Handle paste
+        if (theEvent.type === "paste") {
+          key = event.clipboardData.getData("text/plain");
+        } else {
+          // Handle key press
+          key = theEvent.keyCode || theEvent.which;
+          key = String.fromCharCode(key);
+        }
+        let regex = /[0-9]|\./;
+        if (!regex.test(key)) {
+          theEvent.returnValue = false;
+          if (theEvent.preventDefault) theEvent.preventDefault();
+        }
+      }
     },
   },
 };

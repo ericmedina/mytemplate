@@ -3,14 +3,14 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.33);
     z-index: 5;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
 }
 
 .modal-container {
     overflow: hidden;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100vw;
@@ -30,6 +30,7 @@
     box-shadow: var(--shadow-2);
     margin: 0px;
     padding: 20px;
+    padding-top: 30px;
     -webkit-column-break-inside: avoid;
     position:relative
 }
@@ -42,7 +43,7 @@
     animation-fill-mode: forwards;
 }
 .modal-exit{
-    height:30px;
+    height:20px;
     width: 100%;
     position: absolute;
     top: 0;
@@ -81,6 +82,12 @@
     .modal.fade-out{
         animation: scaleOut .5s ease-in-out;
         animation-fill-mode: forwards;
+    }
+    .modal-exit{
+        display: none;
+    }
+    .modal-form{
+        min-width: 500px;
     }
 }
 
