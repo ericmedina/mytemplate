@@ -3,31 +3,41 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-const routes = [
-    {
+const routes = [{
         path: "/buttons",
         name: "Buttons",
-        component: () => import('@/components/views/examples/Buttons'),
+        component: () =>
+            import ('@/components/views/examples/Buttons'),
     },
     {
         path: "/modals",
         name: "Modals",
-        component: () => import('@/components/views/examples/Modals'),
+        component: () =>
+            import ('@/components/views/examples/Modals'),
+    },
+    {
+        path: "/suggests",
+        name: "Suggests",
+        component: () =>
+            import ('@/components/views/examples/Suggests'),
     },
     {
         path: "/inputs",
         name: "Inputs",
-        component: () => import('@/components/views/examples/Inputs'),
+        component: () =>
+            import ('@/components/views/examples/Inputs'),
     },
     {
         path: "/lists",
         name: "Lists",
-        component: () => import('@/components/views/examples/DataLists'),
+        component: () =>
+            import ('@/components/views/examples/DataLists'),
     },
     {
         path: "/",
         name: "Dashboard",
-        component: () => import('@/components/views/examples/Dashboard'),
+        component: () =>
+            import ('@/components/views/examples/Dashboard'),
     },
 ];
 const router = new VueRouter({

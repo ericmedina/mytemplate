@@ -25,7 +25,14 @@
                 <span v-if="span.label" class="list-label"
                   >{{ span.label }}:</span
                 >
-                {{ showItem(item, span.name) }}
+                <span
+                    :class="span.class"
+                    v-if="span.mutator"
+                    v-html="span.mutator(showItem(item, span.name))"
+                  ></span>
+                  <span v-else :class="span.class">
+                    {{ showItem(item, span.name) }}
+                  </span>
               </span>
             </div>
           </div>
@@ -136,7 +143,11 @@ export default {
     },
     selected(item) {
       this.currentIndex = -1;
-      this.inputValue = this.showItem(item, this.items[0].name);
+      if(this.items[0].mutator){
+        this.inputValue = this.items[0].mutator(this.showItem(item, this.items[0].name));
+      }else{
+        this.inputValue = this.showItem(item, this.items[0].name);
+      }
       this.hide();
       this.$emit("selected", item);
     },
@@ -164,8 +175,10 @@ export default {
         this.hide();
       }
     },
-    closeFocusOut() {
-      this.hide();
+    closeFocusOut(e) {
+      if (e.target != this.$el && !this.$el.contains(e.target)) {
+        this.hide();
+      }
     },
     focusInput() {
       let suggestList = this.$refs["suggestlist"];

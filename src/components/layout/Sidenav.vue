@@ -61,6 +61,7 @@ export default {
         { title: "Inputs", icon: "type", to: { name: "Inputs" } },
         { title: "Lists", icon: "list", to: { name: "Lists" } },
         { title: "Modals", icon: "grid", to: { name: "Modals" } },
+        { title: "Suggests", icon: "info", to: { name: "Suggests" } },
       ],
     };
   },
