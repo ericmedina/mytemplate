@@ -5,7 +5,7 @@
     @blur="closeFocusOut"
     @focusout="closeFocusOut"
   >
-    <pd-input
+    <pui-input
       :id="'sug_' + id"
       :label="label"
       :placeholder="placeholder"
@@ -15,7 +15,7 @@
       :type="type"
       class="suggest"
       v-model="inputValue"
-    ></pd-input>
+    ></pui-input>
     <div class="suggest-list" ref="suggestlist">
       <ul>
         <li v-for="(item, i) in filteredData" :key="i" @click="selected(item)">

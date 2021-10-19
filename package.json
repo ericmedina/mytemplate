@@ -1,45 +1,59 @@
 {
-  "name": "pampaui",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "axios": "^0.23.0",
-    "core-js": "^3.16.2",
-    "feather-icons": "^4.28.0",
-    "vue": "^2.6.11",
-    "vue-router": "^3.5.2"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.0",
-    "@vue/cli-plugin-eslint": "^4.5.0",
-    "@vue/cli-service": "^4.5.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
+    "name": "pampaui",
+    "version": "0.1.0",
+    "description": "Paquete simple de elementos para dashboards",
+    "main": ".dist/pampaui.common.js",
+    "private": false,
+    "author": {
+        "name": "Eric Medina",
+        "email": "ericmedina.dev@gmail.com"
     },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
+    "repository": "https://github.com/ericmedina/pampaui",
+    "bugs": "https://github.com/ericmedina/pampaui/issues",
+    "keywords": ["Datatable", "Datalist", "TableList", "Buttons", "Global elements", "Modal", "File input select", "Inputs"],
+    "license": "MIT",
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "build-library": "vue-cli-service build --target lib --name pampaui ./src/index.js",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "axios": "^0.23.0",
+        "core-js": "^3.16.2",
+        "feather-icons": "^4.28.0",
+        "vue": "^2.6.11",
+        "vue-router": "^3.5.2"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^4.5.0",
+        "@vue/cli-plugin-eslint": "^4.5.0",
+        "@vue/cli-service": "^4.5.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.2.2",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "files": [
+        "dist/*"
     ],
-    "parserOptions": {
-      "parser": "babel-eslint"
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential",
+            "eslint:recommended"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint"
+        },
+        "rules": {}
     },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ]
 }

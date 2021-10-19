@@ -10,23 +10,23 @@
         </button>
       </div>
       <div v-if="showFilter" class="mb-1 search">
-        <pd-input
+        <pui-input
           id="searchInput"
           v-model="searchInput"
           placeholder="Buscar"
           label="Buscar"
           class=""
-        ></pd-input>
+        ></pui-input>
       </div>
     </div>
     <div v-else-if="showFilter" class="search third-right my-1">
-      <pd-input
+      <pui-input
         id="searchInput"
         v-model="searchInput"
         placeholder="Buscar"
         label="Buscar"
         class=""
-      ></pd-input>
+      ></pui-input>
     </div>
     <table class="table-list">
       <thead>

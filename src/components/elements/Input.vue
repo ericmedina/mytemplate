@@ -128,7 +128,7 @@
 </template>
 <script>
 export default {
-  name: "pd-input",
+  name: "pui-input",
   props: {
     label: {
       type: String,
