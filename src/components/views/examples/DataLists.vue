@@ -9,12 +9,8 @@
   </div>
 </template>
 <script>
-import TableList from "@/components/elements/TableList";
 export default {
   name: "DataLists",
-  components: {
-    TableList,
-  },
   data() {
     return {
       header: [

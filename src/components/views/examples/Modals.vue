@@ -11,12 +11,8 @@
     </div>
 </template>
 <script>
-import Modal from '@/components/elements/Modal'
 export default {
     name: 'Modals',
-    components:{
-        Modal
-    },
     data(){
         return{
             modalOpen: false
