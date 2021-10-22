@@ -21,4 +21,5 @@ const PampaUI = {
 if (typeof window !== 'undefined' && window.Vue) {
     window.Vue.use(PampaUI);
 }
+PampaUI.install
 export default PampaUI
