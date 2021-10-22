@@ -1,6 +1,6 @@
 {
     "name": "pampaui",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Paquete simple de elementos para dashboards",
     "main": ".dist/pampaui.common.js",
     "private": false,
@@ -10,7 +10,16 @@
     },
     "repository": "https://github.com/ericmedina/pampaui",
     "bugs": "https://github.com/ericmedina/pampaui/issues",
-    "keywords": ["Datatable", "Datalist", "TableList", "Buttons", "Global elements", "Modal", "File input select", "Inputs"],
+    "keywords": [
+        "Datatable",
+        "Datalist",
+        "TableList",
+        "Buttons",
+        "Global elements",
+        "Modal",
+        "File input select",
+        "Inputs"
+    ],
     "license": "MIT",
     "scripts": {
         "serve": "vue-cli-service serve",
