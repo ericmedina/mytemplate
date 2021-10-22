@@ -2,7 +2,8 @@
     "name": "pampaui",
     "version": "0.1.5",
     "description": "Paquete simple de elementos para dashboards",
-    "main": ".dist/pampaui.common.js",
+    "main": "dist/pampaui.umd.js",
+    "unpkg": "dist/pampaui.umd.min.js",
     "private": false,
     "author": {
         "name": "Eric Medina",
