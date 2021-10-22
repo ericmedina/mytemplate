@@ -1,4 +1,4 @@
-# mytemplate
+# PAMPAUI
 
 ## Project setup
 ```

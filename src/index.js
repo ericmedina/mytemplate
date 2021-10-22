@@ -7,7 +7,7 @@ import Dropdown from './components/elements/Dropdown.vue';
 import Modal from './components/elements/Modal.vue';
 
 const PampaUI = {
-        install(Vue) {
+        install(Vue, options) {
             Vue.component('dropdown', Dropdown);
             Vue.component('icon', Icon);
             Vue.component('pui-input', Input);
