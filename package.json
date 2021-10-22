@@ -1,6 +1,6 @@
 {
     "name": "pampaui",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "description": "Paquete simple de elementos para dashboards",
     "main": "dist/pampaui.umd.js",
     "unpkg": "dist/pampaui.umd.min.js",
